@@ -3,133 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PromptGenie.com | Free AI Art Prompt Generator</title>
-    <meta name="description" content="Ultimate AI Prompt Generator for Bing, Midjourney, and DALL-E. Generate high-quality artistic prompts easily.">
+    <title>PromptGenie.com | Ultimate AI Art Prompt Generator</title>
+    <meta name="description" content="Generate professional prompts for Midjourney, Bing AI, and DALL-E.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root { --primary: #3b82f6; --secondary: #9333ea; }
-        body { background: #020617; color: #e2e8f0; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        .glass { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); }
-        .btn-grad { background: linear-gradient(to right, var(--primary), var(--secondary)); transition: 0.3s; }
-        .btn-grad:hover { opacity: 0.9; transform: translateY(-2px); }
-        .tab-content { display: none; }
-        .tab-content.active { display: block; }
+        body { background: #020617; color: #f1f5f9; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .glass { background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
+        .gradient-bg { background: linear-gradient(135deg, var(--primary), var(--secondary)); }
+        .nav-link:hover { color: #60a5fa; transition: 0.3s; }
+        details summary::-webkit-details-marker { display: none; }
     </style>
 </head>
 <body>
 
-    <nav class="sticky top-0 z-50 glass px-6 py-4 flex justify-between items-center">
+    <nav class="sticky top-0 z-50 glass px-6 py-4 flex justify-between items-center border-b border-slate-800">
         <div class="text-2xl font-black tracking-tighter text-white">
-            <span class="text-blue-500">Prompt</span>Genie<span class="text-purple-500">.com</span>
+            Prompt<span class="text-blue-500">Genie</span><span class="text-purple-500 text-sm">.com</span>
         </div>
         <div class="hidden md:flex space-x-8 text-sm font-medium">
-            <a href="#home" class="hover:text-blue-400">Home</a>
-            <a href="#advanced" class="hover:text-blue-400">Advanced Tool</a>
-            <a href="#about" class="hover:text-blue-400">About</a>
-            <a href="#contact" class="hover:text-blue-400">Contact</a>
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#tool" class="nav-link">Tool</a>
+            <a href="#legal" class="nav-link">Policies</a>
+            <a href="#contact" class="nav-link">Contact</a>
         </div>
-        <button class="md:hidden text-white text-2xl"><i class="fas fa-bars"></i></button>
     </nav>
 
-    <section id="home" class="py-20 px-6 text-center">
+    <header id="home" class="py-20 px-6 text-center">
         <h1 class="text-5xl md:text-7xl font-extrabold mb-6">
-            Master the Art of <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">AI Prompting</span>
+            Master <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">AI Prompting</span>
         </h1>
-        <p class="max-w-2xl mx-auto text-slate-400 text-lg mb-10">Generate professional, high-detail prompts for Bing Image Creator, Midjourney v6, and DALL-E 3 instantly.</p>
-    </section>
+        <p class="max-w-2xl mx-auto text-slate-400 text-lg mb-8">
+            Create high-detail prompts for Bing Image Creator, Midjourney v6, and DALL-E 3 in seconds.
+        </p>
+    </header>
 
-    <main id="advanced" class="max-w-4xl mx-auto px-6 pb-20">
-        <div class="glass p-8 rounded-3xl shadow-2xl">
-            
-            <div class="w-full h-20 bg-slate-900/50 mb-8 rounded-lg flex items-center justify-center border border-dashed border-slate-700 text-xs text-slate-500">
-                [ADSTERRA_PLACEHOLDER_TOP]
+    <div class="max-w-4xl mx-auto mb-10 px-6">
+        <div class="w-full h-24 bg-slate-900/50 rounded-xl flex items-center justify-center border border-dashed border-slate-700 text-slate-500 text-xs uppercase tracking-widest">
+            [Place Adsterra Native Ad Code Here]
+        </div>
+    </div>
+
+    <main id="tool" class="max-w-4xl mx-auto px-6 pb-20">
+        <div class="glass p-8 rounded-3xl shadow-2xl border border-blue-500/20">
+            <div class="mb-8">
+                <label class="block text-sm font-bold mb-3 uppercase text-blue-400 tracking-wider">Step 1: Describe Your Idea</label>
+                <textarea id="userInput" rows="3" class="w-full p-4 rounded-xl bg-slate-950 border border-slate-700 focus:border-blue-500 outline-none resize-none text-white" placeholder="e.g. A futuristic city with flying cars at sunset..."></textarea>
             </div>
 
             <div class="mb-8">
-                <label class="block text-sm font-bold mb-3 uppercase tracking-widest text-blue-400">1. Describe Your Vision</label>
-                <textarea id="userInput" rows="3" class="w-full p-4 rounded-xl bg-slate-900 border border-slate-700 focus:border-blue-500 outline-none resize-none" placeholder="e.g. A futuristic samurai in a cyberpunk Tokyo street at night..."></textarea>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-                <div>
-                    <label class="block text-sm font-bold mb-3 text-blue-400 uppercase">2. Artistic Style</label>
-                    <select id="styleSelect" class="w-full p-3 rounded-lg bg-slate-900 border border-slate-700">
-                        <option value="Photorealistic, 8k, cinematic lighting">Hyper-Realistic</option>
-                        <option value="Cyberpunk style, neon lights, techwear">Cyberpunk</option>
-                        <option value="Disney Pixar 3D animation style, cute">3D Animation</option>
-                        <option value="Studio Ghibli anime style, hand-drawn">Anime</option>
-                        <option value="Digital art, dreamy fantasy world">Fantasy Art</option>
-                        <option value="Vintage 1990s film photography, grainy">Vintage Photo</option>
-                    </select>
-                </div>
-
-                <div>
-                    <label class="block text-sm font-bold mb-3 text-blue-400 uppercase">3. Aspect Ratio</label>
-                    <div class="flex space-x-2">
-                        <button onclick="setAR('--ar 1:1')" class="flex-1 p-2 bg-slate-800 rounded border border-slate-700 hover:bg-slate-700">1:1 (Square)</button>
-                        <button onclick="setAR('--ar 16:9')" class="flex-1 p-2 bg-slate-800 rounded border border-slate-700 hover:bg-slate-700">16:9 (Video)</button>
-                        <button onclick="setAR('--ar 9:16')" class="flex-1 p-2 bg-slate-800 rounded border border-slate-700 hover:bg-slate-700">9:16 (Reel)</button>
-                    </div>
+                <label class="block text-sm font-bold mb-3 uppercase text-blue-400 tracking-wider">Step 2: Choose Artistic Style</label>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                    <button onclick="setEffect('Photorealistic, 8k, cinematic lighting, masterpiece')" class="p-3 bg-slate-800 rounded-lg hover:bg-blue-600 transition text-sm">Realistic</button>
+                    <button onclick="setEffect('Cyberpunk, neon lights, techwear, futuristic')" class="p-3 bg-slate-800 rounded-lg hover:bg-blue-600 transition text-sm">Cyberpunk</button>
+                    <button onclick="setEffect('3D Disney Pixar animation style, cute, vivid')" class="p-3 bg-slate-800 rounded-lg hover:bg-blue-600 transition text-sm">3D Anime</button>
+                    <button onclick="setEffect('Studio Ghibli style, hand-drawn anime art')" class="p-3 bg-slate-800 rounded-lg hover:bg-blue-600 transition text-sm">Classic Anime</button>
                 </div>
             </div>
 
-            <button onclick="generateFullPrompt()" class="w-full py-4 btn-grad rounded-xl text-lg font-bold shadow-lg mb-8">
-                <i class="fas fa-magic mr-2"></i> Generate Magic Prompt
-            </button>
-
-            <div id="resultArea" class="hidden space-y-4">
-                <div class="p-5 bg-slate-950 rounded-xl border border-blue-500/30">
-                    <h3 class="text-xs font-bold text-blue-500 mb-2 uppercase">Your Professional Prompt:</h3>
-                    <p id="finalPrompt" class="text-slate-200 text-lg mb-4"></p>
-                    <button onclick="copy('finalPrompt')" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded font-bold text-sm">Copy Prompt</button>
-                </div>
-
-                <div class="p-5 bg-slate-950 rounded-xl border border-red-500/30 text-sm">
-                    <h3 class="text-xs font-bold text-red-500 mb-2 uppercase">Negative Prompt (What to exclude):</h3>
-                    <p id="negPrompt" class="text-slate-400">extra fingers, blurry, low resolution, ugly, distorted, watermark, signature.</p>
-                    <button onclick="copy('negPrompt')" class="mt-2 text-red-400 hover:underline">Copy Negative</button>
-                </div>
-            </div>
-
-            <div class="w-full h-20 bg-slate-900/50 mt-8 rounded-lg flex items-center justify-center border border-dashed border-slate-700 text-xs text-slate-500">
-                [ADSTERRA_PLACEHOLDER_BOTTOM]
+            <div id="resultArea" class="hidden mt-8 p-6 bg-slate-950 rounded-2xl border border-blue-500/30">
+                <h3 class="text-xs font-bold text-blue-500 mb-2 uppercase">Your Professional Prompt:</h3>
+                <p id="finalPrompt" class="text-slate-200 text-lg mb-6 italic font-serif"></p>
+                <button onclick="copyToClipboard()" id="copyBtn" class="w-full py-4 gradient-bg rounded-xl font-bold text-lg hover:opacity-90 transition shadow-lg">
+                    <i class="fas fa-copy mr-2"></i> Copy Prompt
+                </button>
             </div>
         </div>
     </main>
 
-    <section id="about" class="py-20 bg-slate-900/30 px-6">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl font-bold mb-6">About PromptGenie</h2>
-            <p class="text-slate-400 leading-relaxed">PromptGenie.com is a leading global platform for AI artists. Our mission is to simplify the complex world of prompt engineering. By using our advanced filters and style engines, anyone can create museum-quality digital art without being a technical expert.</p>
+    <div class="max-w-4xl mx-auto mb-20 px-6">
+        <div class="w-full h-20 bg-slate-900/50 rounded-xl flex items-center justify-center border border-dashed border-slate-700 text-slate-500 text-xs uppercase tracking-widest">
+            [Place Adsterra Banner Ad Code Here]
+        </div>
+    </div>
+
+    <section id="legal" class="max-w-4xl mx-auto py-12 px-6 bg-slate-900/20 rounded-3xl mb-20">
+        <h2 class="text-3xl font-bold mb-8 text-center">Policies & <span class="text-blue-500">Information</span></h2>
+        
+        <div class="space-y-4">
+            <details class="glass rounded-xl p-5 cursor-pointer group">
+                <summary class="font-bold text-lg flex justify-between items-center">About Us <i class="fas fa-chevron-down text-sm"></i></summary>
+                <p class="mt-4 text-slate-400 leading-relaxed text-sm">
+                    Welcome to <strong>PromptGenie.com</strong>. We are a team of AI enthusiasts dedicated to bridging the gap between imagination and digital art. Our platform helps creators generate precise, professional prompts for AI models like Bing Image Creator, Midjourney, and DALL-E.
+                </p>
+            </details>
+
+            <details class="glass rounded-xl p-5 cursor-pointer group">
+                <summary class="font-bold text-lg flex justify-between items-center">Privacy Policy <i class="fas fa-chevron-down text-sm"></i></summary>
+                <p class="mt-4 text-slate-400 leading-relaxed text-sm">
+                    At PromptGenie.com, we prioritize your privacy. We do not store your personal data or the prompts you generate. We use third-party advertising partners like Google and Adsterra to serve ads. These partners may use cookies to improve your experience.
+                </p>
+            </details>
+
+            <details class="glass rounded-xl p-5 cursor-pointer group">
+                <summary class="font-bold text-lg flex justify-between items-center">Terms & Conditions <i class="fas fa-chevron-down text-sm"></i></summary>
+                <p class="mt-4 text-slate-400 leading-relaxed text-sm">
+                    By using this site, you agree that you are responsible for the content you create. PromptGenie is a tool for generation and does not claim ownership over the AI-generated results.
+                </p>
+            </details>
         </div>
     </section>
 
-    <footer class="py-10 text-center border-t border-slate-800">
-        <p class="text-slate-500 text-sm">© 2026 PromptGenie.com | Designed for AI Creators</p>
-    </footer custom-script>
+    <section id="contact" class="py-20 text-center px-6">
+        <h2 class="text-3xl font-bold mb-4">Need Help?</h2>
+        <p class="text-slate-400 mb-8">Contact the PromptGenie team for support or inquiries.</p>
+        <a href="mailto:support@promptgenie.com" class="inline-block py-4 px-10 gradient-bg rounded-full font-bold shadow-xl hover:scale-105 transition">
+            Email Us: support@promptgenie.com
+        </a>
+    </section>
+
+    <footer class="py-10 text-center border-t border-slate-900">
+        <p class="text-slate-600 text-sm">© 2026 PromptGenie.com | Designed for AI Artists</p>
+    </footer>
 
     <script>
-        let currentAR = "";
-        function setAR(ar) { currentAR = ar; alert("Aspect Ratio set to " + ar); }
-
-        function generateFullPrompt() {
+        function setEffect(style) {
             const input = document.getElementById('userInput').value;
-            const style = document.getElementById('styleSelect').value;
-            if(!input) return alert("Please describe your vision first!");
-
+            if(!input) {
+                alert("Please describe your idea in Step 1 first!");
+                return;
+            }
+            const fullPrompt = ${input}, ${style} --v 6.0;
+            document.getElementById('finalPrompt').innerText = fullPrompt;
             document.getElementById('resultArea').classList.remove('hidden');
-            const result = ${input}, ${style}, masterpiece, intricate details, hyper-detailed, volumetric lighting ${currentAR};
-            document.getElementById('finalPrompt').innerText = result;
-            window.scrollTo({ top: document.getElementById('resultArea').offsetTop + 100, behavior: 'smooth' });
+            window.scrollTo({ top: document.getElementById('resultArea').offsetTop - 100, behavior: 'smooth' });
         }
 
-        function copy(id) {
-            const text = document.getElementById(id).innerText;
-            navigator.clipboard.writeText(text);
-            alert("Copied to clipboard!");
+        function copyToClipboard() {
+            const text = document.getElementById('finalPrompt').innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = document.getElementById('copyBtn');
+                btn.innerHTML = '<i class="fas fa-check mr-2"></i> Copied to Clipboard!';
+                setTimeout(() => {
+                    btn.innerHTML = '<i class="fas fa-copy mr-2"></i> Copy Prompt';
+                }, 3000);
+            });
         }
     </script>
 </body>
-
 </html>
